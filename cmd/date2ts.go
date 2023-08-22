@@ -9,6 +9,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/spf13/cobra"
@@ -25,6 +26,9 @@ gocli date2ts '2023-09-08 00:00:00' --size=13
 
 # 指定时区
 gocli date2ts '2023-09-08 00:00:00' --zone=UTC
+
+# 以管道方式执行命令
+echo "2023-09-08 00:00:00" | gocli date2ts
 `
 
 // date2TsCmd represents the datetots command
@@ -34,13 +38,13 @@ var date2TsCmd = &cobra.Command{
 	Long:    `日期转时间戳`,
 	Example: date2TsExp,
 	Run: func(cmd *cobra.Command, args []string) {
-		var dateStr []byte
+		var dateBytes []byte
 		if len(args) > 0 {
-			dateStr = []byte(args[0])
+			dateBytes = []byte(args[0])
 		}
-		if len(dateStr) == 0 {
+		if len(dateBytes) == 0 {
 			var err error
-			dateStr, err = io.ReadAll(os.Stdin) //nolint
+			dateBytes, err = io.ReadAll(os.Stdin) //nolint
 			if err != nil {
 				log.Fatal(err)
 			}
@@ -53,8 +57,9 @@ var date2TsCmd = &cobra.Command{
 				log.Fatal(err)
 			}
 		}
-
-		date, err := time.ParseInLocation(time.DateTime, string(dateStr), zone)
+		dateStr := string(dateBytes)
+		dateStr = strings.TrimSuffix(dateStr, "\n")
+		date, err := time.ParseInLocation(time.DateTime, dateStr, zone)
 		if err != nil {
 			log.Fatal(err)
 		}

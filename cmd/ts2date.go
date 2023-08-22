@@ -10,6 +10,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/spf13/cobra"
@@ -26,6 +27,9 @@ gocli ts2date 1694102400000
 
 # 指定时区
 gocli ts2date 1694102400000 --zone=UTC
+
+# 以管道方式执行命令
+echo "1694102400" | gocli ts2date
 `
 
 // ts2DateCmd represents the tstodate command
@@ -56,6 +60,7 @@ var ts2DateCmd = &cobra.Command{
 		}
 
 		tsStr := string(ts)
+		tsStr = strings.TrimSuffix(tsStr, "\n")
 		tsNum, err := strconv.ParseInt(tsStr, 0, 0)
 		if err != nil {
 			log.Fatal(err)

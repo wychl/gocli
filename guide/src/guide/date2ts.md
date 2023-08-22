@@ -9,4 +9,7 @@ gocli date2ts '2023-09-08 00:00:00' --size=13
 
 # 指定时区
 gocli date2ts '2023-09-08 00:00:00' --zone=UTC
+
+# 以管道方式执行命令
+echo "2023-09-08 00:00:00" | gocli date2ts
 ```
