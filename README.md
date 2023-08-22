@@ -16,6 +16,12 @@ go install github.com/wychl/gocli@latest
 
 ## 开发
 
+### 准备工作
+
+```bash
+cp .cobra.yaml ${HOME}/.cobra.yaml
+```
+
 ### 添加新命令
 
 ```bash
@@ -23,6 +29,9 @@ cobra-cli add flate
 cobra-cli add compress -p 'flateCmd'
 cobra-cli add decompress -p 'flateCmd'
 ```
+
+
+### 待实现
 
 ### 参考链接
 

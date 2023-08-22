@@ -27,10 +27,18 @@ var compressCmd = &cobra.Command{
 	Long:    `flate压缩`,
 	Example: compressExp,
 	Run: func(cmd *cobra.Command, args []string) {
-		data, err := io.ReadAll(os.Stdin)
-		if err != nil {
-			log.Fatal(err)
+		var data []byte
+		if len(args) > 0 {
+			data = []byte(args[0])
+		} else {
+			var err error
+			data, err = io.ReadAll(os.Stdin)
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
+		data = bytes.TrimSpace(data)
+
 		if len(data) > 0 {
 			cData, err := comp(data)
 			if err != nil {

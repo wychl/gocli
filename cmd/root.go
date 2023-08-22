@@ -8,18 +8,14 @@ import (
 
 	"github.com/spf13/cobra"
 	flatcmd "github.com/wychl/gocli/cmd/flate"
+	urlcmd "github.com/wychl/gocli/cmd/url"
 )
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "gocli",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "gocli 是一个实用、简单和便捷的工具",
+	Long:  ``,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
@@ -44,5 +40,6 @@ func init() {
 	// Cobra also supports local flags, which will only run
 	// when this action is called directly.
 	rootCmd.AddCommand(flatcmd.FlateCmd)
+	rootCmd.AddCommand(urlcmd.URLCmd)
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

@@ -28,10 +28,17 @@ var decompressCmd = &cobra.Command{
 	Long:    `flate解压缩`,
 	Example: deCompressExp,
 	Run: func(cmd *cobra.Command, args []string) {
-		data, err := io.ReadAll(os.Stdin)
-		if err != nil {
-			log.Fatal(err)
+		var data []byte
+		if len(args) > 0 {
+			data = []byte(args[0])
+		} else {
+			var err error
+			data, err = io.ReadAll(os.Stdin)
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
+
 		if len(data) > 0 {
 			cData, err := deComp(data)
 			if err != nil {
