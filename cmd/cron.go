@@ -19,6 +19,7 @@ import (
 var (
 	cronWithSecond bool        // 是否包含秒
 	cronZone       string = "" // 时区
+	cronStart      string = "" // 开始日期
 )
 
 const cronExp = `
@@ -68,8 +69,15 @@ var cronCmd = &cobra.Command{
 				log.Fatal(err)
 			}
 		}
+		startDate := time.Now()
+		if cronStart != "" {
+			startDate, err = time.Parse(time.DateOnly, cronStart)
+			if err != nil {
+				log.Fatal(err)
+			}
+		}
 		builder := strings.Builder{}
-		cur := time.Now().In(zone)
+		cur := startDate.In(zone)
 		for i := 0; i < 10; i++ {
 			cur = schedule.Next(cur).In(zone)
 			builder.WriteString(fmt.Sprintf("%s\n", cur))
@@ -82,4 +90,5 @@ func init() {
 	rootCmd.AddCommand(cronCmd)
 	cronCmd.Flags().BoolVarP(&cronWithSecond, "second", "s", false, "是否包含秒")
 	cronCmd.Flags().StringVarP(&cronZone, "zone", "z", "", "时区,默认本地时区")
+	cronCmd.Flags().StringVarP(&cronStart, "start", "", "", "开始日期，格式：2006-01-02")
 }
