@@ -123,17 +123,6 @@ var markdown2htmlCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(markdown2htmlCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// markdown2htmlCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// markdown2htmlCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
-
 	markdown2htmlCmd.Flags().StringVarP(&mkURL, "url", "u", "", "markdown文件网页链接")
 	markdown2htmlCmd.Flags().StringVarP(&mkFile, "file", "f", "", "markdown文件路径")
 	markdown2htmlCmd.Flags().StringVarP(&htmlOutput, "output", "o", "", "输出的html文件路径")

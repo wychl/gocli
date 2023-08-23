@@ -1,6 +1,6 @@
 /*
 Copyright © 2023 Abner Wanyan <abner.wanyan@gmail.com>
-This file is part of CLI application foo.
+This file is part of CLI application gocli.
 */
 package cmd
 
@@ -82,14 +82,4 @@ func init() {
 	rootCmd.AddCommand(cronCmd)
 	cronCmd.Flags().BoolVarP(&cronWithSecond, "second", "s", false, "是否包含秒")
 	cronCmd.Flags().StringVarP(&cronZone, "zone", "z", "", "时区,默认本地时区")
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// cronCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// cronCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }

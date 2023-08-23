@@ -50,15 +50,5 @@ var bytesizeCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(bytesizeCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// bytesizeCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// bytesizeCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	bytesizeCmd.Flags().StringVarP(&byteSizeF, "file", "f", "", "文件路径")
 }

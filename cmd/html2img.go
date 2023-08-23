@@ -80,23 +80,11 @@ var html2ImgCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(html2ImgCmd)
 
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// img2pdfCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// img2pdfCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	html2ImgCmd.Flags().StringVarP(&htmlURL, "url", "u", "", "网页链接")
 	html2ImgCmd.Flags().StringVarP(&htmlFile, "file", "f", "", "img文件路径")
 }
 
 // fullScreenshot takes a screenshot of the entire browser viewport.
-//
-// Note: chromedp.FullScreenshot overrides the device's emulation settings. Use
-// device.Reset to reset the emulation and viewport settings.
 func fullScreenshot(urlstr string, quality int, res *[]byte) chromedp.Tasks {
 	return chromedp.Tasks{
 		chromedp.Navigate(urlstr),

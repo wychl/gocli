@@ -1,6 +1,6 @@
 /*
 Copyright © 2023 Abner Wanyan <abner.wanyan@gmail.com>
-This file is part of CLI application foo.
+This file is part of CLI application gocli.
 */
 package cmd
 
@@ -85,15 +85,5 @@ var htmlminifyCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(htmlminifyCmd)
-
-	// Here you will define your flags and configuration settings.
-
-	// Cobra supports Persistent Flags which will work for this command
-	// and all subcommands, e.g.:
-	// htmlminifyCmd.PersistentFlags().String("foo", "", "A help for foo")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// htmlminifyCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	htmlminifyCmd.Flags().BoolVarP(&jsonEscape, "jsonescape", "e", false, "将html字符串转义为json字符串")
 }
