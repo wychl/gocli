@@ -24,3 +24,6 @@ go.work
 .DS_Store
 
 gocli
+
+# 文件拓展
+*.pdf

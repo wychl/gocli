@@ -17,3 +17,6 @@
 - [时间戳转日期](guide/ts2date.md)
 - [数据字节大小可读化](guide/bytesize.md)
 - [随机字符串](guide/nanoid.md)
+- [外网IP](guide/ipinfo.md)
+- [ip地理位置](guide/geoip.md)
+- [curl转代码](guide/curl2code.md)
