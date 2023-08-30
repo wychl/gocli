@@ -5,8 +5,6 @@ This file is part of CLI application gocli.
 package cmd
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
 )
 
@@ -16,7 +14,6 @@ var qrcodeCmd = &cobra.Command{
 	Short: "二维码",
 	Long:  `二维码`,
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("qrcode called")
 	},
 }
 

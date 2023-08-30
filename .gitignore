@@ -27,3 +27,6 @@ gocli
 
 # 文件拓展
 *.pdf
+*.png
+*.jpg
+*.jpeg
