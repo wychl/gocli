@@ -37,5 +37,5 @@ var decodeCmd = &cobra.Command{
 }
 
 func init() {
-	URLCmd.AddCommand(decodeCmd)
+	urlCMD.AddCommand(decodeCmd)
 }

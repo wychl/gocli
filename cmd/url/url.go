@@ -6,6 +6,7 @@ package urlcmd
 
 import (
 	"github.com/spf13/cobra"
+	"github.com/wychl/gocli/cmd"
 )
 
 const urlExp = `
@@ -16,8 +17,8 @@ gocli url encode https://example.com/你好
 gocli url decode https://example.com/%E4%BD%A0%E5%A5%BD
 `
 
-// URLCmd represents the url command
-var URLCmd = &cobra.Command{
+// urlCMD represents the url command
+var urlCMD = &cobra.Command{
 	Use:   "url",
 	Short: "url",
 	Long:  `url`,
@@ -26,4 +27,5 @@ var URLCmd = &cobra.Command{
 }
 
 func init() {
+	cmd.Register(urlCMD)
 }

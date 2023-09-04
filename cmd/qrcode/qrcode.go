@@ -6,6 +6,7 @@ package cmd
 
 import (
 	"github.com/spf13/cobra"
+	"github.com/wychl/gocli/cmd"
 )
 
 // qrcodeCmd represents the qrcode command
@@ -18,5 +19,5 @@ var qrcodeCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(qrcodeCmd)
+	cmd.Register(qrcodeCmd)
 }

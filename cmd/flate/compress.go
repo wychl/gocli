@@ -50,7 +50,7 @@ var compressCmd = &cobra.Command{
 }
 
 func init() {
-	FlateCmd.AddCommand(compressCmd)
+	flateCmd.AddCommand(compressCmd)
 }
 
 func comp(data []byte) ([]byte, error) {

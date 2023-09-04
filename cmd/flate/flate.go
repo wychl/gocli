@@ -7,10 +7,11 @@ import (
 	"fmt"
 
 	"github.com/spf13/cobra"
+	"github.com/wychl/gocli/cmd"
 )
 
 // flateCmd represents the flate command
-var FlateCmd = &cobra.Command{
+var flateCmd = &cobra.Command{
 	Use:   "flate",
 	Short: "flate解压缩",
 	Long:  `flate解压缩`,
@@ -20,4 +21,5 @@ var FlateCmd = &cobra.Command{
 }
 
 func init() {
+	cmd.Register(flateCmd)
 }

@@ -41,5 +41,5 @@ var encodeCmd = &cobra.Command{
 }
 
 func init() {
-	URLCmd.AddCommand(encodeCmd)
+	urlCMD.AddCommand(encodeCmd)
 }
