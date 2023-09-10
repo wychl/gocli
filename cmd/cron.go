@@ -5,15 +5,12 @@ This file is part of CLI application gocli.
 package cmd
 
 import (
-	"fmt"
 	"io"
 	"log"
 	"os"
-	"strings"
-	"time"
 
-	"github.com/robfig/cron/v3"
 	"github.com/spf13/cobra"
+	"github.com/wychl/gocli/command/cron"
 )
 
 var (
@@ -51,38 +48,8 @@ var cronCmd = &cobra.Command{
 				log.Fatal(err)
 			}
 		}
-		var parser cron.Parser
-		if cronWithSecond {
-			parser = cron.NewParser(cron.Second | cron.Minute | cron.Hour | cron.Dom | cron.Month | cron.Dow)
-		} else {
-			parser = cron.NewParser(cron.SecondOptional | cron.Minute | cron.Hour | cron.Dom | cron.Month | cron.Dow)
-		}
-		schedule, err := parser.Parse(string(spec))
-		if err != nil {
-			log.Fatal(err)
-		}
-		zone := time.Local
-		if cronZone != "" {
-			var err error
-			zone, err = time.LoadLocation(cronZone) //nolint
-			if err != nil {
-				log.Fatal(err)
-			}
-		}
-		startDate := time.Now()
-		if cronStart != "" {
-			startDate, err = time.Parse(time.DateOnly, cronStart)
-			if err != nil {
-				log.Fatal(err)
-			}
-		}
-		builder := strings.Builder{}
-		cur := startDate.In(zone)
-		for i := 0; i < 10; i++ {
-			cur = schedule.Next(cur).In(zone)
-			builder.WriteString(fmt.Sprintf("%s\n", cur))
-		}
-		fmt.Println(builder.String())
+		parser := cron.New()
+		parser.Run(&cron.Config{Exp: string(spec), Zone: cronZone, Start: cronStart, WithSecond: cronWithSecond})
 	},
 }
 

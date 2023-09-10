@@ -21,6 +21,8 @@ require (
 require (
 	github.com/chromedp/sysutil v1.0.0 // indirect
 	github.com/dlclark/regexp2 v1.10.0 // indirect
+	github.com/go-kit/log v0.2.1 // indirect
+	github.com/go-logfmt/logfmt v0.5.1 // indirect
 	github.com/gobwas/httphead v0.1.0 // indirect
 	github.com/gobwas/pool v0.2.1 // indirect
 	github.com/gobwas/ws v1.2.1 // indirect

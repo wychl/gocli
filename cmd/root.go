@@ -14,9 +14,6 @@ var rootCmd = &cobra.Command{
 	Use:   "gocli",
 	Short: "gocli 是一个实用、简单和便捷的工具",
 	Long:  ``,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	// Run: func(cmd *cobra.Command, args []string) { },
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
