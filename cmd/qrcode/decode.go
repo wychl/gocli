@@ -57,7 +57,7 @@ var decodeCmd = &cobra.Command{
 		img, _, _ := image.Decode(r)
 		bmp, _ := gozxing.NewBinaryBitmapFromImage(img)
 		qrReader := qrcode.NewQRCodeReader()
-		result, _ := qrReader.Decode(bmp, nil)
+		result, _ := qrReader.DecodeWithoutHints(bmp)
 		fmt.Print(result)
 	},
 }
