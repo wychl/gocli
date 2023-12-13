@@ -8,6 +8,7 @@ require (
 	github.com/atotto/clipboard v0.1.4
 	github.com/chromedp/cdproto v0.0.0-20230620000757-8605e5981815
 	github.com/chromedp/chromedp v0.9.1
+	github.com/go-kit/log v0.2.1
 	github.com/ipipdotnet/ipdb-go v1.3.3
 	github.com/jaevor/go-nanoid v1.3.0
 	github.com/makiuchi-d/gozxing v0.1.1
@@ -21,7 +22,6 @@ require (
 require (
 	github.com/chromedp/sysutil v1.0.0 // indirect
 	github.com/dlclark/regexp2 v1.10.0 // indirect
-	github.com/go-kit/log v0.2.1 // indirect
 	github.com/go-logfmt/logfmt v0.5.1 // indirect
 	github.com/gobwas/httphead v0.1.0 // indirect
 	github.com/gobwas/pool v0.2.1 // indirect
